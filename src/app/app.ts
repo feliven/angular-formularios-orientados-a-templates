@@ -1,15 +1,15 @@
-import { Component } from '@angular/core';
-import { AppRoutingModule } from './app-routing.module';
+import { Component } from "@angular/core";
+import { RouterOutlet } from "@angular/router";
 
-import { Header } from './components/header/header';
-import { Footer } from './components/footer/footer';
+import { Header } from "./components/header/header";
+import { Footer } from "./components/footer/footer";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.html',
-  styleUrls: ['./app.css'],
-  imports: [Header, AppRoutingModule, Footer],
+  selector: "app-root",
+  templateUrl: "./app.html",
+  styleUrls: ["./app.css"],
+  imports: [Header, RouterOutlet, Footer],
 })
 export class App {
-  title = 'forms-reativos';
+  title = "forms-reativos";
 }
