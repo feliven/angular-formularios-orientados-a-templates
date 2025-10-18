@@ -1,0 +1,91 @@
+
+# Node / JavaScript
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnp.cjs
+.pnp.js
+.lock-wscript
+package-lock.json.tmp
+
+# Build outputs
+dist/
+build/
+out/
+lib/
+es/
+*.tsbuildinfo
+
+# Angular / TypeScript specific
+/out-tsc/
+.angular/
+.angular/cache/
+
+# Bundler caches
+.cache/
+.next/
+.nuxt/
+.jspm/
+bower_components/
+
+# Tests / coverage
+coverage/
+*.lcov
+
+# Environment / secrets
+.env
+.env.*.local
+.env.local
+.env.production
+.env.test
+.local
+*.pem
+*.key
+
+# Logs
+logs/
+*.log
+*.log.*
+
+# OS files
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# IDEs / editors
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+*.code-workspace
+*.iml
+
+# Editor temp files
+*~
+*.swp
+*.swo
+*.tmp
+*.temp
+
+# Archive / packages
+*.tgz
+*.tar.gz
+*.zip
+
+# Misc
+coverage/
+reports/
+temp/
+tmp/
+.cache-loader/
+
+# Lockfiles created by package managers (optional — uncomment if you prefer not to commit)
+# yarn.lock
+# package-lock.json
+# pnpm-lock.yaml/node_modules
