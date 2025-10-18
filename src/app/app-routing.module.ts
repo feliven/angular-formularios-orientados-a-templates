@@ -1,8 +1,8 @@
-import { SucessoCadastroComponent } from './sucesso-cadastro/sucesso-cadastro.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CadastroComponent } from './cadastro/cadastro.component';
 
+import { SucessoCadastro } from './pages/sucesso-cadastro/sucesso-cadastro';
+import { Cadastro } from './pages/cadastro/cadastro';
 
 const routes: Routes = [
   {
@@ -12,11 +12,11 @@ const routes: Routes = [
   },
   {
     path: 'cadastro',
-    component: CadastroComponent
+    component: Cadastro,
   },
   {
     path: 'sucesso',
-    component: SucessoCadastroComponent
+    component: SucessoCadastro,
   },
 ];
 

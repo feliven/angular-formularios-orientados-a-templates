@@ -2,16 +2,16 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { CadastroComponent } from './cadastro/cadastro.component';
-import { SucessoCadastroComponent } from './sucesso-cadastro/sucesso-cadastro.component';
+import { App } from './app';
+import { Header } from './components/header/header';
+import { Footer } from './components/footer/footer';
+import { Cadastro } from './pages/cadastro/cadastro';
+import { SucessoCadastro } from './pages/sucesso-cadastro/sucesso-cadastro';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent, CadastroComponent, SucessoCadastroComponent],
+  declarations: [],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [],
 })
-export class AppModule { }
+export class AppModule {}
