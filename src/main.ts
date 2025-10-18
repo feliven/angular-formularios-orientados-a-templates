@@ -5,7 +5,9 @@ import { environment } from "./environments/environment";
 import { bootstrapApplication } from "@angular/platform-browser";
 import { provideRouter } from "@angular/router";
 import { App } from "./app/app";
-import { routes } from "./app/app-routing.module";
+import { routes } from "./app/app-routes";
+import { SucessoCadastro } from "./app/pages/sucesso-cadastro/sucesso-cadastro";
+import { Cadastro } from "./app/pages/cadastro/cadastro";
 
 if (environment.production) {
   enableProdMode();
@@ -14,7 +16,19 @@ if (environment.production) {
 bootstrapApplication(App, {
   providers: [
     provideRouter([
-      // Your routes here
+      {
+        path: "",
+        pathMatch: "full",
+        redirectTo: "cadastro",
+      },
+      {
+        path: "cadastro",
+        component: Cadastro,
+      },
+      {
+        path: "sucesso",
+        component: SucessoCadastro,
+      },
     ]),
   ],
 });
