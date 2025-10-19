@@ -1,13 +1,15 @@
 import { Router } from "@angular/router";
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { FormBuilder, FormGroup, FormsModule, NgForm, Validators } from "@angular/forms";
+import { FormsModule, NgForm, Validators } from "@angular/forms";
+
 import { InterfaceCadastro } from "../../interfaces/interface-cadastro";
+import { MensagemErro } from "src/app/components/mensagem-erro/mensagem-erro";
 
 @Component({
   selector: "app-cadastro",
   templateUrl: "./cadastro.html",
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, MensagemErro],
   styleUrls: ["./cadastro.css"],
   standalone: true,
 })

@@ -15,9 +15,9 @@
       />
     </div>
     @if(formularioPreenchido.controls[ "nome" ]?.errors?.["required"] && formularioPreenchido.touched){
-    <div class="mensagem-erro">Insira um nome.</div>
+    <app-mensagem-erro tipo="required"></app-mensagem-erro>
     } @if(formularioPreenchido.controls[ "nome" ]?.errors?.["minlength"] && formularioPreenchido.touched){
-    <div class="mensagem-erro">Nome deve ter pelo menos 4 caracteres.</div>
+    <app-mensagem-erro tipo="minlength"></app-mensagem-erro>
     }
 
     <div class="formulario__dupla">
@@ -48,9 +48,9 @@
       </div>
     </div>
     @if(formularioPreenchido.controls[ "telefone" ]?.errors?.["pattern"] && formularioPreenchido.touched){
-    <div class="mensagem-erro">O campo de telefone deve seguir este padrão: XX XXXXX-XXXX.</div>
+    <app-mensagem-erro tipo="telefone"></app-mensagem-erro>
     } @else if(formularioPreenchido.controls[ "telefone" ]?.errors?.["required"] && formularioPreenchido.touched){
-    <div class="mensagem-erro">Este campo deve ser preenchido.</div>
+    <app-mensagem-erro tipo="required"></app-mensagem-erro>
     }
 
     <div class="formulario__campo">
@@ -65,9 +65,9 @@
         pattern="^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$"
       />
       @if(formularioPreenchido.controls[ "email" ]?.errors?.["pattern"] && formularioPreenchido.touched){
-      <div class="mensagem-erro">O campo de email deve seguir este padrão: exemplo@dominio.com.</div>
+      <app-mensagem-erro tipo="email"></app-mensagem-erro>
       } @else if(formularioPreenchido.controls[ "email" ]?.errors?.["required"] && formularioPreenchido.touched){
-      <div class="mensagem-erro">Este campo deve ser preenchido.</div>
+      <app-mensagem-erro tipo="required"></app-mensagem-erro>
       }
     </div>
 
