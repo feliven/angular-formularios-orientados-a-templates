@@ -1,10 +1,10 @@
-import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-cadastro',
-  templateUrl: './cadastro.html',
-  styleUrls: ['./cadastro.css'],
+  selector: "app-cadastro",
+  templateUrl: "./cadastro.html",
+  styleUrls: ["./cadastro.css"],
 })
 export class Cadastro implements OnInit {
   constructor(private router: Router) {}
@@ -12,6 +12,6 @@ export class Cadastro implements OnInit {
   ngOnInit(): void {}
 
   cadastrar() {
-    console.log('Formulário enviado');
+    console.log("Formulário enviado");
   }
 }
