@@ -1,7 +1,7 @@
 import { Router } from "@angular/router";
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { FormBuilder, FormGroup, FormsModule, Validators } from "@angular/forms";
+import { FormBuilder, FormGroup, FormsModule, NgForm, Validators } from "@angular/forms";
 import { InterfaceCadastro } from "../../interfaces/interface-cadastro";
 
 @Component({
@@ -12,6 +12,8 @@ import { InterfaceCadastro } from "../../interfaces/interface-cadastro";
   standalone: true,
 })
 export class Cadastro implements OnInit {
+  @ViewChild("formularioPreenchido") formularioPreenchido!: NgForm;
+
   formularioASerEnviado: InterfaceCadastro = {
     nome: "",
     nascimento: "",
@@ -31,17 +33,12 @@ export class Cadastro implements OnInit {
   constructor(private router: Router) {}
 
   cadastrarFormulario(): void {
-    // if (this.formularioASerEnviado.valid) {
-    console.log(this.formularioASerEnviado);
-    console.log("Formulário enviado");
-    this.router.navigate(["sucesso"]);
-    // } else {
-    //   console.log("Formulário inválido");
-    // Object.keys(formularioASerEnviado.controls).forEach((key) => {
-    //   const control = formularioASerEnviado.controls[key];
-    //   if (control.invalid) {
-    //     control.markAsTouched();
-    //   }
-    // });
+    if (this.formularioPreenchido.valid) {
+      console.log(this.formularioASerEnviado);
+      console.log(this.formularioPreenchido);
+      console.log("Formulário enviado");
+    } else {
+      console.log("Formulário inválido");
+    }
   }
 }

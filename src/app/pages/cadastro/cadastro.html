@@ -1,7 +1,7 @@
 <main class="principal">
   <h2 class="principal__titulo">Dados do cadastro</h2>
 
-  <form class="principal__formulario" id="formulario">
+  <form class="principal__formulario" id="formulario" #formularioPreenchido="ngForm" (ngSubmit)="cadastrarFormulario()">
     <h3 class="principal__subtitulo">Dados pessoais</h3>
     <div class="formulario__campo">
       <label class="campo__etiqueta" for="nome">Nome Completo</label>
@@ -106,6 +106,6 @@
         </select>
       </div>
     </div>
-    <button type="submit" (click)="cadastrarFormulario()" class="formulario__botao">Enviar formulário</button>
+    <button type="submit" class="formulario__botao">Enviar formulário</button>
   </form>
 </main>
