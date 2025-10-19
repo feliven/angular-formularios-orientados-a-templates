@@ -14,9 +14,11 @@
         minlength="4"
       />
     </div>
-    @if(formularioPreenchido.controls[ "nome" ]?.errors?.["required"] && formularioPreenchido.touched){
+    @if(formularioPreenchido.controls[ "nome" ]?.errors?.["required"] && formularioPreenchido.controls[ "nome"
+    ].touched){
     <app-mensagem-erro tipo="required"></app-mensagem-erro>
-    } @if(formularioPreenchido.controls[ "nome" ]?.errors?.["minlength"] && formularioPreenchido.touched){
+    } @if(formularioPreenchido.controls[ "nome" ]?.errors?.["minlength"] && formularioPreenchido.controls[ "nome"
+    ].touched){
     <app-mensagem-erro tipo="minlength"></app-mensagem-erro>
     }
 
@@ -45,13 +47,15 @@
           maxlength="11"
           pattern="(\(?\d{2}\)?\s?)(\d{5}\-?\d{4})"
         />
+        @if(formularioPreenchido.controls[ "telefone" ]?.errors?.["pattern"] && formularioPreenchido.controls[
+        "telefone" ].touched){
+        <app-mensagem-erro tipo="telefone"></app-mensagem-erro>
+        } @else if(formularioPreenchido.controls[ "telefone" ]?.errors?.["required"] && formularioPreenchido.controls[
+        "telefone" ].touched){
+        <app-mensagem-erro tipo="required"></app-mensagem-erro>
+        }
       </div>
     </div>
-    @if(formularioPreenchido.controls[ "telefone" ]?.errors?.["pattern"] && formularioPreenchido.touched){
-    <app-mensagem-erro tipo="telefone"></app-mensagem-erro>
-    } @else if(formularioPreenchido.controls[ "telefone" ]?.errors?.["required"] && formularioPreenchido.touched){
-    <app-mensagem-erro tipo="required"></app-mensagem-erro>
-    }
 
     <div class="formulario__campo">
       <label class="campo__etiqueta" for="email">E-mail</label>
@@ -64,9 +68,11 @@
         required
         pattern="^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$"
       />
-      @if(formularioPreenchido.controls[ "email" ]?.errors?.["pattern"] && formularioPreenchido.touched){
+      @if(formularioPreenchido.controls[ "email" ]?.errors?.["pattern"] && formularioPreenchido.controls[ "email"
+      ].touched){
       <app-mensagem-erro tipo="email"></app-mensagem-erro>
-      } @else if(formularioPreenchido.controls[ "email" ]?.errors?.["required"] && formularioPreenchido.touched){
+      } @else if(formularioPreenchido.controls[ "email" ]?.errors?.["required"] && formularioPreenchido.controls[
+      "email" ].touched){
       <app-mensagem-erro tipo="required"></app-mensagem-erro>
       }
     </div>

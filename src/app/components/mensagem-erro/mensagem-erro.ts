@@ -7,7 +7,6 @@ import { Component, Input } from "@angular/core";
   styleUrl: "./mensagem-erro.css",
 })
 export class MensagemErro {
-  @Input() mensagemErro = "";
   @Input() tipo: "required" | "minlength" | "pattern" | "email" | "telefone" = "required";
 
   getMensagem(): string {
@@ -19,6 +18,6 @@ export class MensagemErro {
       telefone: "O campo de telefone deve seguir este padrão: XX XXXXX-XXXX.",
     };
 
-    return this.mensagemErro || mensagensErro[this.tipo];
+    return mensagensErro[this.tipo];
   }
 }
