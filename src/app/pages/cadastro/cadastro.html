@@ -29,6 +29,7 @@
           id="nascimento"
           type="date"
           class="campo__escrita"
+          required
         />
       </div>
       <div class="formulario__campo">
@@ -40,12 +41,34 @@
           type="tel"
           placeholder="(XX) XXXXX-XXXX"
           class="campo__escrita"
+          required
+          maxlength="11"
+          pattern="(\(?\d{2}\)?\s?)(\d{5}\-?\d{4})"
         />
       </div>
     </div>
+    @if(formularioPreenchido.controls[ "telefone" ]?.errors?.["pattern"] && formularioPreenchido.touched){
+    <div class="mensagem-erro">O campo de telefone deve seguir este padrão: XX XXXXX-XXXX.</div>
+    } @else if(formularioPreenchido.controls[ "telefone" ]?.errors?.["required"] && formularioPreenchido.touched){
+    <div class="mensagem-erro">Este campo deve ser preenchido.</div>
+    }
+
     <div class="formulario__campo">
       <label class="campo__etiqueta" for="email">E-mail</label>
-      <input [(ngModel)]="formularioASerEnviado.email" name="email" id="email" type="email" class="campo__escrita" />
+      <input
+        [(ngModel)]="formularioASerEnviado.email"
+        name="email"
+        id="email"
+        type="email"
+        class="campo__escrita"
+        required
+        pattern="^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$"
+      />
+      @if(formularioPreenchido.controls[ "email" ]?.errors?.["pattern"] && formularioPreenchido.touched){
+      <div class="mensagem-erro">O campo de email deve seguir este padrão: exemplo@dominio.com.</div>
+      } @else if(formularioPreenchido.controls[ "email" ]?.errors?.["required"] && formularioPreenchido.touched){
+      <div class="mensagem-erro">Este campo deve ser preenchido.</div>
+      }
     </div>
 
     <h3 class="principal__subtitulo">Endereço</h3>
