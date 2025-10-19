@@ -1,15 +1,16 @@
 import { Router } from "@angular/router";
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { FormsModule, NgForm, Validators } from "@angular/forms";
+import { AbstractControl, FormsModule, NgForm, ValidationErrors, Validators } from "@angular/forms";
 
 import { InterfaceCadastro } from "../../interfaces/interface-cadastro";
-import { MensagemErro } from "src/app/components/mensagem-erro/mensagem-erro";
+import { MensagemErro } from "../../components/mensagem-erro/mensagem-erro";
+import { MaiorDeIdade } from "../../directives/maior-de-idade";
 
 @Component({
   selector: "app-cadastro",
   templateUrl: "./cadastro.html",
-  imports: [CommonModule, FormsModule, MensagemErro],
+  imports: [CommonModule, FormsModule, MensagemErro, MaiorDeIdade],
   styleUrls: ["./cadastro.css"],
   standalone: true,
 })
@@ -30,9 +31,9 @@ export class Cadastro implements OnInit {
     estado: "",
   };
 
-  ngOnInit(): void {}
-
   constructor(private router: Router) {}
+
+  ngOnInit(): void {}
 
   cadastrarFormulario(): void {
     if (this.formularioPreenchido.valid) {

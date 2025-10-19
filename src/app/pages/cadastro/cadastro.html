@@ -32,8 +32,17 @@
           type="date"
           class="campo__escrita"
           required
+          appMaiorDeIdade
         />
+        @if(formularioPreenchido.controls[ "nascimento" ]?.errors?.["required"] && formularioPreenchido.controls[
+        "nascimento" ].touched){
+        <app-mensagem-erro tipo="required"></app-mensagem-erro>
+        }@else if(formularioPreenchido.controls[ "nascimento" ]?.errors?.["maiorDeIdadeValidator"] &&
+        formularioPreenchido.controls[ "nascimento" ].touched) {
+        <app-mensagem-erro tipo="maiordeidade"></app-mensagem-erro>
+        }
       </div>
+
       <div class="formulario__campo">
         <label class="campo__etiqueta" for="telefone">Contato</label>
         <input
