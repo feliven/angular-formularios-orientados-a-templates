@@ -17,7 +17,7 @@
     @if(formularioPreenchido.controls[ "nome" ]?.errors?.["required"] && formularioPreenchido.controls[ "nome"
     ].touched){
     <app-mensagem-erro tipo="required"></app-mensagem-erro>
-    } @if(formularioPreenchido.controls[ "nome" ]?.errors?.["minlength"] && formularioPreenchido.controls[ "nome"
+    } @else if(formularioPreenchido.controls[ "nome" ]?.errors?.["minlength"] && formularioPreenchido.controls[ "nome"
     ].touched){
     <app-mensagem-erro tipo="minlength"></app-mensagem-erro>
     }
@@ -90,9 +90,26 @@
 
     <div class="formulario__campo">
       <label class="campo__etiqueta" for="cep">CEP</label>
-      <input [(ngModel)]="formularioASerEnviado.cep" name="cep" id="cep" class="campo__escrita" />
-      <div id="erro"></div>
+      <input
+        [(ngModel)]="formularioASerEnviado.cep"
+        name="cep"
+        id="cep"
+        class="campo__escrita"
+        required
+        minlength="8"
+        maxlength="8"
+        pattern="^(\d{5})(-?\d{3})$"
+      />
     </div>
+    @if(formularioPreenchido.controls[ "cep" ]?.errors?.["required"] && formularioPreenchido.controls[ "cep" ].touched){
+    <app-mensagem-erro tipo="required"></app-mensagem-erro>
+    } @else if(formularioPreenchido.controls[ "cep" ]?.errors?.["pattern"] && formularioPreenchido.controls[ "cep"
+    ].touched){
+    <app-mensagem-erro tipo="cep"></app-mensagem-erro>
+    }@else if(formularioPreenchido.controls[ "cep" ]?.errors?.["minlength"] && formularioPreenchido.controls[ "cep"
+    ].touched){
+    <app-mensagem-erro tipo="minlength"></app-mensagem-erro>
+    }
 
     <div class="formulario__campo">
       <label class="campo__etiqueta" for="endereco">Endereço</label>
