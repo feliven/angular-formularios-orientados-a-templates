@@ -11,9 +11,15 @@
         id="nome"
         class="campo__escrita"
         required
-        minlength="2"
+        minlength="4"
       />
     </div>
+    @if(formularioPreenchido.controls[ "nome" ]?.errors?.["required"] && formularioPreenchido.touched){
+    <div class="mensagem-erro">Insira um nome.</div>
+    } @if(formularioPreenchido.controls[ "nome" ]?.errors?.["minlength"] && formularioPreenchido.touched){
+    <div class="mensagem-erro">Nome deve ter pelo menos 4 caracteres.</div>
+    }
+
     <div class="formulario__dupla">
       <div class="formulario__campo">
         <label class="campo__etiqueta" for="nascimento">Nascimento</label>
