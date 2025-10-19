@@ -1,11 +1,18 @@
 <main class="principal">
   <h2 class="principal__titulo">Dados do cadastro</h2>
 
-  <form class="principal__formulario" id="formulario" #formularioPreenchido="ngForm" (ngSubmit)="cadastrarFormulario()">
+  <form #formularioPreenchido="ngForm" (ngSubmit)="cadastrarFormulario()" class="principal__formulario" id="formulario">
     <h3 class="principal__subtitulo">Dados pessoais</h3>
     <div class="formulario__campo">
       <label class="campo__etiqueta" for="nome">Nome Completo</label>
-      <input [(ngModel)]="formularioASerEnviado.nome" name="nome" id="nome" class="campo__escrita" required />
+      <input
+        [(ngModel)]="formularioASerEnviado.nome"
+        name="nome"
+        id="nome"
+        class="campo__escrita"
+        required
+        minlength="2"
+      />
     </div>
     <div class="formulario__dupla">
       <div class="formulario__campo">

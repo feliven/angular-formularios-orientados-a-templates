@@ -37,6 +37,7 @@ export class Cadastro implements OnInit {
       console.log(this.formularioASerEnviado);
       console.log(this.formularioPreenchido);
       console.log("Formulário enviado");
+      this.router.navigate(["sucesso"]);
     } else {
       console.log("Formulário inválido");
     }
