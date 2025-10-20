@@ -2,17 +2,18 @@ import { Router } from "@angular/router";
 import { Component, ViewChild } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormsModule, NgForm } from "@angular/forms";
-import { Observable, Subscription } from "rxjs";
+import { Subscription } from "rxjs";
 
 import { InterfaceCadastro } from "../../interfaces/interface-cadastro";
 import { MensagemErro } from "../../components/mensagem-erro/mensagem-erro";
 import { MaiorDeIdade } from "../../directives/maior-de-idade";
+import { ValidarCEP } from "../../directives/validar-cep";
 import { ConsultaCEPService } from "../../services/consulta-cep-service";
 
 @Component({
   selector: "app-cadastro",
   templateUrl: "./cadastro.html",
-  imports: [CommonModule, FormsModule, MensagemErro, MaiorDeIdade],
+  imports: [CommonModule, FormsModule, MensagemErro, MaiorDeIdade, ValidarCEP],
   styleUrls: ["./cadastro.css"],
   standalone: true,
 })
@@ -45,7 +46,8 @@ export class Cadastro {
         this.popularEndereco(resultado, this.formularioPreenchido);
       },
       error: (erro) => {
-        console.error(erro.message); // Will show either "CEP não encontrado" or "O formato do CEP é inválido"
+        console.error(erro.message);
+        // Will show either "CEP não encontrado" or "O formato do CEP é inválido"
       },
     });
   }
