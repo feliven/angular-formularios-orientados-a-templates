@@ -2,12 +2,12 @@ import { Router } from "@angular/router";
 import { Component, ViewChild } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormsModule, NgForm } from "@angular/forms";
+import { Observable, Subscription } from "rxjs";
 
 import { InterfaceCadastro } from "../../interfaces/interface-cadastro";
 import { MensagemErro } from "../../components/mensagem-erro/mensagem-erro";
 import { MaiorDeIdade } from "../../directives/maior-de-idade";
-import { ConsultaCepService } from "src/app/services/consulta-cep-service";
-import { Observable, Subscription } from "rxjs";
+import { ConsultaCepService } from "../../services/consulta-cep-service";
 
 @Component({
   selector: "app-cadastro",
@@ -42,14 +42,25 @@ export class Cadastro {
     return this.consultaCEPService.getConsultaCEP(cepNoFormulario).subscribe((resultado) => {
       if (resultado) {
         console.log(resultado);
+        this.popularEndereco(resultado, this.formularioPreenchido);
       }
     });
   }
 
+  popularEndereco(dados: any, formulario: NgForm) {
+    formulario.form.patchValue({
+      endereco: dados.logradouro,
+      numero: dados.complemento, // é assim que a API funciona...
+      bairro: dados.bairro,
+      cidade: dados.localidade,
+      estado: dados.uf,
+    });
+  }
+
   cadastrarFormulario(): void {
+    console.log(this.formularioASerEnviado);
+    console.log(this.formularioPreenchido);
     if (this.formularioPreenchido.valid) {
-      console.log(this.formularioASerEnviado);
-      console.log(this.formularioPreenchido);
       console.log("Formulário enviado");
       this.router.navigate(["sucesso"]);
     } else {
