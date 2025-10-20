@@ -13,14 +13,13 @@ export class ConsultaCEPService {
   getConsultaCEP(cep: string): Observable<unknown> {
     const enderecoAPIComCEP = `${this.enderecoAPI}${cep}/json`;
 
-    // return this.http.get(enderecoAPIComCEP);
-
     return this.http.get(enderecoAPIComCEP).pipe(
-      catchError((erro) => {
-        if (erro.status === 404) {
-          return throwError(() => new Error("CEP não encontrado"));
+      catchError((mensagemDeErro) => {
+        console.log(mensagemDeErro);
+        if (mensagemDeErro.name === "HttpErrorResponse") {
+          return throwError(() => new Error("O formato do CEP é inválido."));
         }
-        return throwError(() => new Error("Erro ao consultar CEP"));
+        return throwError(() => new Error("Erro ao consultar CEP."));
       })
     );
   }
