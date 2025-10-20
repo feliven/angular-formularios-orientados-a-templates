@@ -103,9 +103,6 @@
         validadorCEP
       />
     </div>
-    <div>
-      <pre>{{ formularioPreenchido.controls["cep"]?.errors | json }}</pre>
-    </div>
     @if(formularioPreenchido.controls[ "cep" ]?.errors?.["required"] && formularioPreenchido.controls[ "cep" ].touched){
     <app-mensagem-erro tipo="required"></app-mensagem-erro>
     } @else if(formularioPreenchido.controls[ "cep" ]?.errors?.["pattern"] && formularioPreenchido.controls[ "cep"
