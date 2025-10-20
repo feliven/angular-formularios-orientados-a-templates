@@ -5,7 +5,7 @@ import { Observable, catchError, throwError } from "rxjs";
 @Injectable({
   providedIn: "root",
 })
-export class ConsultaCepService {
+export class ConsultaCEPService {
   enderecoAPI = "https://viacep.com.br/ws/";
 
   constructor(private http: HttpClient) {}

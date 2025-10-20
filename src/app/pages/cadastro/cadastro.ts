@@ -7,7 +7,7 @@ import { Observable, Subscription } from "rxjs";
 import { InterfaceCadastro } from "../../interfaces/interface-cadastro";
 import { MensagemErro } from "../../components/mensagem-erro/mensagem-erro";
 import { MaiorDeIdade } from "../../directives/maior-de-idade";
-import { ConsultaCepService } from "../../services/consulta-cep-service";
+import { ConsultaCEPService } from "../../services/consulta-cep-service";
 
 @Component({
   selector: "app-cadastro",
@@ -33,7 +33,7 @@ export class Cadastro {
     estado: "",
   };
 
-  constructor(private router: Router, private consultaCEPService: ConsultaCepService) {}
+  constructor(private router: Router, private consultaCEPService: ConsultaCEPService) {}
 
   consultarCEP(evento: FocusEvent): Subscription {
     const target = evento.target as HTMLInputElement;

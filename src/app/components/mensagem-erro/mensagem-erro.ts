@@ -7,7 +7,8 @@ import { Component, Input } from "@angular/core";
   styleUrl: "./mensagem-erro.css",
 })
 export class MensagemErro {
-  @Input() tipo: "required" | "minlength" | "pattern" | "email" | "telefone" | "maiordeidade" | "cep" = "required";
+  @Input() tipo: "required" | "minlength" | "pattern" | "email" | "telefone" | "maiordeidade" | "cep" | "validadorCEP" =
+    "required";
 
   getMensagem(): string {
     const mensagensErro = {
@@ -18,6 +19,7 @@ export class MensagemErro {
       telefone: "O campo de telefone deve seguir este padrão: XX XXXXX-XXXX.",
       maiordeidade: "Você precisa ter mais de 18 anos para se cadastrar.",
       cep: "Formato inválido de CEP.",
+      validadorCEP: "Este CEP é inválido.",
     };
 
     return mensagensErro[this.tipo];

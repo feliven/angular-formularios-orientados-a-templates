@@ -100,7 +100,11 @@
         maxlength="8"
         pattern="^(\d{5})(-?\d{3})$"
         (blur)="consultarCEP($event)"
+        validadorCEP
       />
+    </div>
+    <div>
+      <pre>{{ formularioPreenchido.controls["cep"]?.errors | json }}</pre>
     </div>
     @if(formularioPreenchido.controls[ "cep" ]?.errors?.["required"] && formularioPreenchido.controls[ "cep" ].touched){
     <app-mensagem-erro tipo="required"></app-mensagem-erro>
@@ -110,6 +114,9 @@
     }@else if(formularioPreenchido.controls[ "cep" ]?.errors?.["minlength"] && formularioPreenchido.controls[ "cep"
     ].touched){
     <app-mensagem-erro tipo="minlength"></app-mensagem-erro>
+    }@if(formularioPreenchido.controls[ "cep" ]?.errors?.["validadorCEP"] && formularioPreenchido.controls[ "cep"
+    ].touched){
+    <app-mensagem-erro tipo="validadorCEP"></app-mensagem-erro>
     }
 
     <div class="formulario__campo">
