@@ -99,6 +99,7 @@
         minlength="8"
         maxlength="8"
         pattern="^(\d{5})(-?\d{3})$"
+        (blur)="consultarCEP($event)"
       />
     </div>
     @if(formularioPreenchido.controls[ "cep" ]?.errors?.["required"] && formularioPreenchido.controls[ "cep" ].touched){

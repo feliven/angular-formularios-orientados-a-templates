@@ -9,7 +9,8 @@ import { Footer } from "./components/footer/footer";
   selector: "app-root",
   templateUrl: "./app.html",
   styleUrls: ["./app.css"],
-  imports: [Header, RouterOutlet, Footer],
+  imports: [RouterOutlet, Header, Footer],
+  standalone: true,
 })
 export class App {
   title = "forms-reativos";
