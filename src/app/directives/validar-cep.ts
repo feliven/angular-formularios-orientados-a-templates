@@ -22,16 +22,8 @@ export class ValidarCEP implements AsyncValidator {
     controle: AbstractControl<any, any>
   ): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> {
     const cep = controle.value;
-    return this.consultaCEPService.getConsultaCEP(cep).pipe(
-      tap((resultado) => console.log("Validação do CEP:", resultado)),
-      map((resultado: any) => {
-        if (resultado.erro === true) {
-          console.log("CEP inválido.");
-          return { validadorCEP: false };
-        }
-        console.log("CEP foi validado.");
-        return null;
-      })
-    );
+    return this.consultaCEPService
+      .getConsultaCEP(cep)
+      .pipe(map((resultado: any) => (resultado.erro ? { validadorCEP: true } : null)));
   }
 }

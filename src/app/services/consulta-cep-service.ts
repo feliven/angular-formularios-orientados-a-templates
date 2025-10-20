@@ -1,6 +1,6 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable, catchError, throwError } from "rxjs";
+import { Observable, catchError, throwError, map } from "rxjs";
 
 @Injectable({
   providedIn: "root",
@@ -14,12 +14,17 @@ export class ConsultaCEPService {
     const enderecoAPIComCEP = `${this.enderecoAPI}${cep}/json`;
 
     return this.http.get(enderecoAPIComCEP).pipe(
+      map((resposta: any) => {
+        if (resposta.erro === "true") {
+          throw new Error("CEP não encontrado.");
+        }
+        return resposta;
+      }),
       catchError((mensagemDeErro) => {
-        console.log(mensagemDeErro);
-        if (mensagemDeErro.name === "HttpErrorResponse") {
+        if (mensagemDeErro instanceof HttpErrorResponse) {
           return throwError(() => new Error("O formato do CEP é inválido."));
         }
-        return throwError(() => new Error("Erro ao consultar CEP."));
+        return throwError(() => mensagemDeErro);
       })
     );
   }

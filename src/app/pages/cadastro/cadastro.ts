@@ -39,11 +39,14 @@ export class Cadastro {
     const target = evento.target as HTMLInputElement;
     const cepNoFormulario = target.value;
 
-    return this.consultaCEPService.getConsultaCEP(cepNoFormulario).subscribe((resultado) => {
-      if (resultado) {
+    return this.consultaCEPService.getConsultaCEP(cepNoFormulario).subscribe({
+      next: (resultado) => {
         console.log(resultado);
         this.popularEndereco(resultado, this.formularioPreenchido);
-      }
+      },
+      error: (erro) => {
+        console.error(erro.message); // Will show either "CEP não encontrado" or "O formato do CEP é inválido"
+      },
     });
   }
 

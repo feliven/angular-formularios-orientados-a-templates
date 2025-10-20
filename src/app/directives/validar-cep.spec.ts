@@ -3,9 +3,9 @@ import { ConsultaCEPService } from "../services/consulta-cep-service";
 
 describe("validadorCEP", () => {
   it("should create an instance", () => {
-    const mockCepService = jasmine.createSpyObj("ConsultaCEPService", ["getConsultaCEP"]);
+    const mockCEPService = jasmine.createSpyObj("ConsultaCEPService", ["getConsultaCEP"]);
 
-    const directive = new ValidarCEP(mockCepService);
+    const directive = new ValidarCEP(mockCEPService);
     expect(directive).toBeTruthy();
   });
 });
