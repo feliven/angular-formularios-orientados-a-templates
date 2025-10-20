@@ -114,12 +114,26 @@
 
     <div class="formulario__campo">
       <label class="campo__etiqueta" for="endereco">Endereço</label>
-      <input [(ngModel)]="formularioASerEnviado.endereco" name="endereco" id="endereco" class="campo__escrita" />
+      <input
+        [(ngModel)]="formularioASerEnviado.endereco"
+        name="endereco"
+        id="endereco"
+        class="campo__escrita"
+        required
+      />
     </div>
+    @if(formularioPreenchido.controls[ "endereco" ]?.errors?.["required"] && formularioPreenchido.controls[ "endereco"
+    ].touched){
+    <app-mensagem-erro tipo="required"></app-mensagem-erro>
+    }
     <div class="formulario__dupla">
       <div class="formulario__campo">
         <label class="campo__etiqueta" for="numero">Numero</label>
-        <input [(ngModel)]="formularioASerEnviado.numero" name="numero" id="numero" class="campo__escrita" />
+        <input [(ngModel)]="formularioASerEnviado.numero" name="numero" id="numero" class="campo__escrita" required />
+        @if(formularioPreenchido.controls[ "numero" ]?.errors?.["required"] && formularioPreenchido.controls[ "numero"
+        ].touched){
+        <app-mensagem-erro tipo="required"></app-mensagem-erro>
+        }
       </div>
       <div class="formulario__campo">
         <label class="campo__etiqueta" for="complemento">Complemento</label>
@@ -133,17 +147,24 @@
     </div>
     <div class="formulario__campo">
       <label class="campo__etiqueta" for="bairro">Bairro</label>
-      <input [(ngModel)]="formularioASerEnviado.bairro" name="bairro" id="bairro" class="campo__escrita" />
+      <input [(ngModel)]="formularioASerEnviado.bairro" name="bairro" id="bairro" class="campo__escrita" required />
     </div>
+    @if(formularioPreenchido.controls[ "bairro" ]?.errors?.["required"] && formularioPreenchido.controls[ "bairro"
+    ].touched){
+    <app-mensagem-erro tipo="required"></app-mensagem-erro>
+    }
     <div class="formulario__dupla">
       <div class="formulario__campo">
         <label class="campo__etiqueta" for="cidade">Cidade</label>
-        <input [(ngModel)]="formularioASerEnviado.cidade" name="cidade" id="cidade" class="campo__escrita" />
+        <input [(ngModel)]="formularioASerEnviado.cidade" name="cidade" id="cidade" class="campo__escrita" required />
+        @if(formularioPreenchido.controls[ "cidade" ]?.errors?.["required"] && formularioPreenchido.controls[ "cidade"
+        ].touched){
+        <app-mensagem-erro tipo="required"></app-mensagem-erro>
+        }
       </div>
-
       <div class="formulario__campo">
         <label class="campo__etiqueta" for="estado">UF</label>
-        <select [(ngModel)]="formularioASerEnviado.estado" id="estado" name="estado" class="campo__escrita">
+        <select [(ngModel)]="formularioASerEnviado.estado" id="estado" name="estado" class="campo__escrita" required>
           <option value="AC">Acre</option>
           <option value="AL">Alagoas</option>
           <option value="AP">Amapá</option>
@@ -173,6 +194,10 @@
           <option value="TO">Tocantins</option>
           <option value="EX">Estrangeiro</option>
         </select>
+        @if(formularioPreenchido.controls[ "estado" ]?.errors?.["required"] && formularioPreenchido.controls[ "estado"
+        ].touched){
+        <app-mensagem-erro tipo="required"></app-mensagem-erro>
+        }
       </div>
     </div>
     <button type="submit" class="formulario__botao">Enviar formulário</button>
